@@ -1,0 +1,21 @@
+- name: Remove any existing nvim installation
+  become: true
+  apt:
+    name: neovim
+    state: absent
+  tags:
+  - nvim
+
+- name: Download nvim .deb package
+  get_url:
+    url: https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb
+    dest: /tmp/nvim.deb
+  tags:
+  - nvim
+    
+- name: Install nvim .deb package
+  become: true
+  apt:
+    deb: /tmp/nvim.deb
+  tags:
+    - nvim
