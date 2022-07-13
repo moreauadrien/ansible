@@ -13,3 +13,4 @@
     - include: tasks/git-setup.yml
     - include: tasks/brave.yml
     - include: tasks/nvim-setup.yml
+    - include: tasks/golang.yml

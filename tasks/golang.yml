@@ -1,0 +1,14 @@
+- name: remove any previous go installation
+  file:
+    path: /usr/local/go
+    state: absent
+  tags:
+    - go
+
+- name: Install go 
+  ansible.builtin.unarchive:
+    src: https://go.dev/dl/go1.18.4.linux-amd64.tar.gz
+    dest: /usr/local
+    remote_src: yes
+  tags:
+    - go
