@@ -1,4 +1,8 @@
 - hosts: localhost
+  vars:
+    source_key: "./.ssh/id_ed25519"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+
   pre_tasks:
   - name: Update Apt
     become: true
@@ -9,7 +13,9 @@
     tags:
       - install
       - core
+
   tasks:
+    - include: tasks/ssh.yml
     - include: tasks/git-setup.yml
     - include: tasks/brave.yml
     - include: tasks/nvim-setup.yml
