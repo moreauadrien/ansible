@@ -1,0 +1,6 @@
+- name: Install terminal and productivity tools 
+  become: true
+  apt:
+    name: [ "fzf", "tmux", "xclip", "tldr", "ripgrep" ]
+  tags:
+    - terminal

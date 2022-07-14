@@ -1,0 +1,9 @@
+- name: Install cargo
+  apt: 
+    name: cargo
+    state: present
+  tags: &tags_for_alacritty_tasks [ "alacritty" ]
+
+- name: Install alacritty
+  shell: cargo install alacritty
+  tags: *tags_for_alacritty_tasks

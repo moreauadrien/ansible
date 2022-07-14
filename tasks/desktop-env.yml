@@ -1,0 +1,11 @@
+- name: Install destop environement packages
+  ansible.builtin.apt:
+    pkg:
+    - i3 
+    - polybar
+    - rofi
+    - feh
+    - picom
+
+  tags:
+    - desktop
